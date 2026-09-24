@@ -1,0 +1,35 @@
+[project]
+name = "aapda-saathi"
+version = "0.1.0"
+description = "A self-contained multi-hazard emergency assistance portfolio demo."
+requires-python = ">=3.12"
+dependencies = [
+    "Flask>=3.1,<4",
+    "pydantic>=2.0,<3",
+    "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9",
+    "ruff>=0.9,<1",
+    "pre-commit>=4,<5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
