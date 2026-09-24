@@ -8,15 +8,12 @@
 
 <br>
 
-[![Live Demo](https://aapada-saathi.vercel.app)
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge\&logo=python\&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge\&logo=flask\&logoColor=white)](https://flask.palletsprojects.com/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=000000)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Live Preview](https://img.shields.io/badge/Live-Preview-0d4f4b?style=for-the-badge)](https://aapada-saathi.vercel.app)
+
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Status](https://img.shields.io/badge/Status-Working%20Prototype-2E7D32?style=for-the-badge)](#-project-status)
-
-<br>
-
-### 🌐 [Open Live Demo](https://aapda-saathi-naypmrd8s-utkc1507-collabs-projects.vercel.app)
 
 </div>
 
@@ -107,14 +104,14 @@ The goal is to ask:
 
 Flooding is treated as the primary demonstration scenario while the system is structured around multiple hazards:
 
-| Hazard              | Demonstration Focus                 |
-| ------------------- | ----------------------------------- |
-| 🌊 Flood            | Rising-water / assistance reporting |
-| 🏔️ Landslide       | Terrain and rainfall-related risk   |
-| 🌪️ Cyclone / Storm | Wind and storm preparedness         |
-| 🌍 Earthquake       | Preparedness information            |
-| ☀️ Heatwave         | Elevated heat conditions            |
-| ⚡ Lightning         | Weather-related risk                |
+| Hazard | Demonstration Focus |
+| --- | --- |
+| 🌊 Flood | Rising-water / assistance reporting |
+| 🏔️ Landslide | Terrain and rainfall-related risk |
+| 🌪️ Cyclone / Storm | Wind and storm preparedness |
+| 🌍 Earthquake | Preparedness information |
+| ☀️ Heatwave | Elevated heat conditions |
+| ⚡ Lightning | Weather-related risk |
 
 This creates a foundation that can conceptually expand without redesigning the entire product.
 
@@ -290,7 +287,6 @@ The application is deployed using:
 * GitHub-based deployment workflow
 
 ---
-
 # 🏗️ Architecture
 
 ```mermaid
@@ -319,523 +315,73 @@ flowchart TD
     G --> M
 ```
 
----
-
-# 🛠️ Technology Stack
-
-| Layer           | Technology                         |
-| --------------- | ---------------------------------- |
-| Frontend        | HTML5, CSS3, Vanilla JavaScript    |
-| Backend         | Python, Flask                      |
-| Validation      | Pydantic                           |
-| API             | REST-style Flask endpoints         |
-| CORS            | Flask-CORS                         |
-| Testing         | Pytest                             |
-| Deployment      | Vercel                             |
-| Version Control | Git + GitHub                       |
-| Development     | macOS + Python virtual environment |
-
-### Planned / Future Integrations
-
-The architecture can later be extended with services such as:
-
-* Supabase / PostgreSQL
-* authentication
-* persistent incident storage
-* real weather feeds
-* geospatial services
-* OpenStreetMap / Leaflet
-* official hazard information
-* carefully constrained AI assistance
-
-These are **future directions, not claims about the current prototype.**
 
 ---
 
-# 🔌 API Surface
-
-The current backend exposes a small, deliberately understandable API.
-
-| Endpoint               | Purpose                       |
-| ---------------------- | ----------------------------- |
-| `GET /`                | Serves the main application   |
-| `GET /api/health`      | Backend health check          |
-| `GET /api/hazards`     | Demonstration hazard data     |
-| `GET /api/safe-places` | Demonstration safe-place data |
-| `GET /api/demo-status` | Demonstration system status   |
-| `POST /api/requests`   | Processes emergency reports   |
-
-Example request:
-
-```json
-{
-  "message": "We are trapped and need help"
-}
-```
-
-Example response:
-
-```json
-{
-  "status": "accepted",
-  "mode": "demo",
-  "request": {
-    "message": "We are trapped and need help",
-    "priority": "CRITICAL",
-    "reason": "Message contains a critical safety indicator."
-  }
-}
-```
-
----
-
-# 🧪 Testing & Verification
-
-The project was not treated as complete simply because the webpage loaded.
-
-I used multiple layers of verification:
-
-### Automated testing
-
-```bash
-python3 -m pytest -q
-```
-
-The current backend test suite passes.
-
-### Manual testing
-
-I also verified:
-
-* homepage loading
-* hazard interactions
-* emergency form behaviour
-* API responses
-* priority classification
-* voice interaction
-* responsive interface behaviour
-* deployment behaviour
-
-### Deployment debugging
-
-The production deployment initially exposed a missing dependency:
-
-```text
-ModuleNotFoundError: No module named 'flask_cors'
-```
-
-The issue was traced to a dependency that existed locally but had not been declared for production.
-
-After adding the dependency and redeploying, the production deployment became operational.
-
-This was an important lesson:
-
-> **Local success does not automatically mean production readiness.**
-
----
-
-# 🤖 How This Was Built
-
-Aapda Saathi is an **AI-assisted, human-directed and human-verified** project.
-
-I used AI as a development accelerator, not as a substitute for understanding or decision-making.
-
-### What I decided
-
-* Chose the overall problem and product direction.
-* Chose a flood-first approach within a broader multi-hazard system.
-* Defined the user experience.
-* Chose deterministic triage for emergency priority.
-* Explored constrained-connectivity and silent-household scenarios.
-* Directed the visual and technical iteration.
-* Tested and verified the resulting application.
-
-### Where AI helped
-
-AI was used for:
-
-* project planning
-* architecture discussions
-* boilerplate development
-* implementation drafts
-* UI exploration
-* debugging guidance
-* documentation
-* development iteration
-
-### How I verified the work
-
-I:
-
-* reviewed generated code
-* ran automated tests
-* performed browser testing
-* investigated deployment failures
-* reproduced implementation problems
-* fixed dependency issues
-* verified the production deployment
-
-### What I learned
-
-AI-generated code can contain:
-
-* missing dependencies
-* incorrect assumptions
-* environment-specific problems
-* implementation bugs
-
-Using AI effectively therefore requires the ability to **read, question, test and verify the output.**
-
----
-
-# 🎓 Why I Built This
-
-I am currently a **second-year Computer Science & Data Science student**.
-
-I wanted to move beyond simply following tutorials and test whether I could take a problem from an initial idea through:
-
-```text
-Problem
-   ↓
-Research & Ideation
-   ↓
-Product Direction
-   ↓
-Technical Architecture
-   ↓
-Implementation
-   ↓
-Testing
-   ↓
-Debugging
-   ↓
-Deployment
-```
-
-Aapda Saathi became an opportunity to practise that complete cycle.
-
-The project allowed me to work across:
-
-* frontend development
-* backend development
-* API design
-* product thinking
-* user experience
-* debugging
-* deployment
-* testing
-* documentation
-
-More importantly, it pushed me to think about **why** a feature should exist before thinking about **how** to implement it.
-
----
-
-# 💡 What This Project Taught Me
-
-### 1. Building a product is different from building a page
-
-A visually attractive interface is only one part of a useful product.
-
-The harder questions are:
-
-> Who is using it?
-
-> What problem are they facing?
-
-> What information do they need?
-
-> What happens when something fails?
-
----
-
-### 2. Simplicity becomes more important as the situation becomes more complex
-
-Emergency scenarios already contain cognitive pressure.
-
-Adding more information does not necessarily make a system more useful.
-
-Good design sometimes means deciding **what not to show.**
-
----
-
-### 3. Deterministic systems can be valuable
-
-Not every problem requires an AI model.
-
-For emergency prioritisation in this prototype, deterministic logic provides a transparent baseline that can be inspected and tested.
-
----
-
-### 4. Deployment is part of development
-
-A project is not finished when it works on localhost.
-
-It has to survive:
-
-**Build → Environment → Dependencies → Deployment → Verification**
-
----
-
-# ⚠️ Current Limitations
-
-Aapda Saathi is intentionally presented as a prototype.
-
-It currently does **not** provide:
-
-* real emergency dispatch
-* verified government data
-* live rescue coordination
-* real hospital availability
-* guaranteed hazard predictions
-* production-scale infrastructure
-* real-time responder networks
-* verified evacuation routes
-* guaranteed GPS accuracy
-* real disaster alerts
-
-The safe-place and hazard information currently shown by the application is demonstration data.
-
----
-
-# 🚀 Future Direction
-
-If developed beyond the prototype stage, the system could evolve toward:
-
-### Data
-
-* verified government hazard feeds
-* weather and rainfall data
-* seismic information
-* river-level information
-* satellite-derived signals
-
-### Infrastructure
-
-* PostgreSQL / Supabase
-* authentication
-* persistent incident records
-* role-based responder access
-* audit logs
-
-### Geospatial Intelligence
-
-* real maps
-* geocoded incidents
-* dynamic safe-place routing
-* affected-area visualisation
-* geographic clustering
-
-### Communication
-
-* SMS fallback
-* offline-first workflows
-* queued reports
-* multilingual voice interaction
-* accessibility-first emergency communication
-
-### Intelligence
-
-AI could potentially assist with:
-
-* multilingual understanding
-* summarising incident reports
-* duplicate detection
-* extracting structured information
-
-But safety-critical decisions should remain **transparent, constrained and independently verifiable.**
-
----
-
-# 📁 Project Structure
-
-```text
-aapda_saathi/
-│
-├── api/
-│   └── index.py
-│
-├── backend/
-│   ├── app.py
-│   ├── routes/
-│   │   └── requests.py
-│   │
-│   └── services/
-│       ├── demo_data.py
-│       └── triage.py
-│
-├── frontend/
-│   ├── index.html
-│   │
-│   ├── css/
-│   │   └── design.css
-│   │
-│   └── js/
-│       └── app.js
-│
-├── tests/
-│
-├── docs/
-│
-├── pyproject.toml
-├── README.md
-└── .gitignore
-```
-
----
-
-# 💻 Run Locally
-
-Clone the repository:
-
-```bash
-git clone https://github.com/utkc1507-collab/AAPADA-SAATHI.git
-cd AAPADA-SAATHI
-```
-
-Create a virtual environment:
-
-```bash
-python3 -m venv .venv
-```
-
-Activate it:
-
-### macOS / Linux
-
-```bash
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -e .
-```
-
-Run the application:
-
-```bash
-python3 -m flask --app backend.app run
-```
-
-Then open the local address shown by Flask in your browser.
-
----
-
-# 🌐 Live Demo
-
-<div align="center">
-
-### 🚨 Experience the prototype
-
-**[Open Aapda Saathi →](https://aapda-saathi-naypmrd8s-utkc1507-collabs-projects.vercel.app)**
-
-</div>
-
-> **Note:** The live deployment is a demonstration environment using simulated data.
-
----
-
-# 📊 Project Status
-
-| Area                               | Status            |
-| ---------------------------------- | ----------------- |
-| Landing Experience                 | ✅ Complete        |
-| Multi-Hazard Interface             | ✅ Complete        |
-| Emergency Reporting                | ✅ Complete        |
-| Deterministic Triage               | ✅ Complete        |
-| Voice Input Prototype              | ✅ Implemented     |
-| Demo APIs                          | ✅ Complete        |
-| Backend Tests                      | ✅ Passing         |
-| GitHub Repository                  | ✅ Active          |
-| Vercel Deployment                  | ✅ Live            |
-| Real Emergency Integration         | ⏳ Not implemented |
-| Production Disaster Infrastructure | ⏳ Future work     |
-
----
-
-# 🧭 Development Philosophy
-
-Aapda Saathi follows a simple principle:
-
-> **Technology should not make a difficult situation harder to understand.**
-
-That principle influenced the product direction, interface hierarchy and backend design.
-
-The project therefore prioritises:
-
-**Clarity over complexity.**
-
-**Verification over blind generation.**
-
-**User needs over feature quantity.**
-
-**Responsible prototyping over exaggerated claims.**
-
----
-
-# 👨‍💻 About the Developer
+# 👨‍💻 About Me
 
 <div align="center">
 
 ### Utkarsh Chandra Vishwakarma
 
-**B.Tech Computer Science & Data Science**
+**Second-Year B.Tech Computer Science & Data Science Student**
 
-Second-Year Student
-
-Interested in:
+Rishihood University • India
 
 **Software Engineering • Data Science • AI • Product Development • Entrepreneurship**
 
 </div>
 
-I built Aapda Saathi as an opportunity to combine software development with problem-solving and product thinking.
+I am currently a **second-year Computer Science & Data Science student at Rishihood University**, exploring the intersection of technology, data and product thinking.
 
-Rather than treating web development as only a collection of technologies to learn, I wanted to use it as a way to explore a meaningful real-world problem.
+At this stage of my journey, my focus is on becoming someone who can take a problem from **idea → engineering → execution**, rather than learning technologies in isolation.
 
----
+I am actively building my foundations in:
 
-# ⭐ Final Note
+- Software Engineering
+- Data Structures & Algorithms
+- Data Science
+- Artificial Intelligence
+- Web Development
+- Product Development
+- Entrepreneurship
 
-Aapda Saathi is still a prototype.
+Projects like **Aapda Saathi** are part of that process.
 
-It does not claim to replace emergency services, disaster-management authorities or trained responders.
+I built this project to challenge myself to go beyond tutorials and experience the complete development cycle — understanding a problem, shaping a product idea, making technical decisions, writing the software, debugging it, testing it and deploying it.
 
-What it does represent is a learning process:
+I am still learning, but I am deliberately trying to learn by **building, breaking, questioning and improving**.
 
-> **Identify a meaningful problem.**
->
-> **Design around the people affected by it.**
->
-> **Build a working system.**
->
-> **Test it.**
->
-> **Break it.**
->
-> **Fix it.**
->
-> **Deploy it.**
->
-> **Learn from it.**
+### Current Position
 
-That is what this project means to me.
+**B.Tech Computer Science & Data Science — Second Year**
+
+**Rishihood University, India**
+
+**2025–2029**
+
+Currently focused on strengthening my technical foundations while building practical projects that combine **software, data, AI and problem-solving**.
 
 ---
+
+# 🌱 What I Am Building Towards
+
+My long-term goal is to become a strong technology professional capable of moving between **engineering, data, product and entrepreneurship**.
+
+I want to build systems that are not only technically functional, but also solve problems that are meaningful to the people using them.
+
+Aapda Saathi is one step in that journey.
+
+<br>
 
 <div align="center">
 
 ### 🌊 Aapda Saathi
 
-**Technology for clearer decisions when situations become difficult.**
+**One project. One problem. One more step forward.**
 
 <br>
 
 Built with curiosity, iteration and a problem-first mindset.
-
-<br>
-
-**⭐ If you found the project interesting, consider starring the repository.**
 
 </div>
