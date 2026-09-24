@@ -4,6 +4,7 @@ from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 
 from backend.routes.requests import requests_bp
+from backend.services.demo_data import HAZARDS, SAFE_PLACES, demo_status
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
@@ -32,18 +33,22 @@ def health():
 
 @app.get("/api/hazards")
 def hazards():
+    return jsonify({"hazards": HAZARDS})
+
+
+@app.get("/api/safe-places")
+def safe_places():
     return jsonify(
         {
-            "hazards": [
-                {"id": "flood", "name": "Flood", "status": "monitor"},
-                {"id": "landslide", "name": "Landslide", "status": "monitor"},
-                {"id": "cyclone", "name": "Cyclone / Storm", "status": "monitor"},
-                {"id": "earthquake", "name": "Earthquake", "status": "preparedness"},
-                {"id": "heatwave", "name": "Heatwave", "status": "monitor"},
-                {"id": "lightning", "name": "Lightning", "status": "monitor"},
-            ]
+            "mode": "demo",
+            "places": SAFE_PLACES,
         }
     )
+
+
+@app.get("/api/demo-status")
+def demo_status_route():
+    return jsonify(demo_status())
 
 
 @app.get("/css/<path:filename>")
