@@ -3,11 +3,15 @@ from pathlib import Path
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 
+from backend.routes.requests import requests_bp
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
 
 app = Flask(__name__)
 CORS(app)
+
+app.register_blueprint(requests_bp)
 
 
 @app.get("/")
