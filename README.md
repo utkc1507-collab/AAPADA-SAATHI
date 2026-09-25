@@ -39,7 +39,7 @@ Floods, earthquakes, droughts, tsunamis and other natural hazards are recurring 
 
 Their consequences extend far beyond the immediate event. Communities can face disrupted communication, damaged infrastructure, displacement, loss of livelihoods and difficulty accessing reliable information.
 
-A major disaster in Nepal in 2026 particularly influenced my thinking while developing this project.
+A major Nepal flood (2026) particularly influenced my thinking while developing this project.
 
 Seeing how quickly a disaster can disrupt communication, mobility and access to essential information led me to a simple question:
 
